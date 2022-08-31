@@ -6,12 +6,12 @@
 /*   By: atoof <atoof@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 12:47:59 by atoof             #+#    #+#             */
-/*   Updated: 2022/08/31 16:46:20 by atoof            ###   ########.fr       */
+/*   Updated: 2022/08/31 19:58:40 by atoof            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#include <stdio.h>
+#include	<stdio.h>
 
 #define BUFF_SIZE 29900
 
@@ -20,14 +20,13 @@ int main(void)
 	char 	*str;
 	char 	*str_line_1;
 	char	*str_body;
-	char	matrix[200];
 	int		obstacle_ptr[30];
 	int 	fd, i, j, k;
 	int 	rd_fd;
 	char	obstacle;
 	char	empty;
 	char	fill_sq;
-	int		count, row;
+	int		row, length,col_i,column;
 	str = (char *)malloc(sizeof(char *) * (BUFF_SIZE + 1));
 	str_line_1 = (char *)malloc(sizeof(char *) * (BUFF_SIZE + 1));
 	str_body = (char *)malloc(sizeof(char *) * (BUFF_SIZE + 1));
@@ -42,41 +41,48 @@ int main(void)
 		str_line_1[i] = str[i];
 		i++;
 	}
-//our rows	
-	count = 0;
-	while (str[i] != '\0')
-	{
-		while (str[i] == '\n')
-		{
-			count++;
-			i++;
-		}
-		i++;
-	}
-	
-	row = count;
-	str_line_1[i] = '\0';
+	str_line_1[i] = '\0';	
 	obstacle = str_line_1[i - 2];
 	empty = str_line_1[i - 3];
 	fill_sq = str_line_1[i - 1];
+	length = i;
+	col_i = i;
 	//obstacle positions
 	j = 0;
 	k = 0;
+	row = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '\n')
 			i++;
-		str_body[j] = str[i];
+			str_body[j] = str[i];
 		if (str_body[j] == obstacle)
 		{
 			obstacle_ptr[k] = j;
-			printf("%d\n", obstacle_ptr[k]);
 			k++;
 		}
 		i++;
 		j++;
 	}
-	//column
-	
+
+	//number of rows	
+	row = 0;
+	while (str[length] != '\0')
+	{
+		while (str[length] == '\n')
+		{
+			row++;
+			length++;
+		}
+		length++;
+	}
+	//number of column
+	column = 0;
+	while (str[col_i + 1] != '\n')
+	{
+		column++;
+		col_i++;
+	}
+	while  	
 	return (0);
 }

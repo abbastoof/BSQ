@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtoof <mtoof@student.hive.fi>              +#+  +:+       +#+        */
+/*   By: atoof <atoof@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 16:51:17 by mtoof             #+#    #+#             */
-/*   Updated: 2022/08/29 17:19:28 by mtoof            ###   ########.fr       */
+/*   Updated: 2022/08/31 19:14:22 by atoof            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,11 @@ char 	*ft_strcpy(char *dest, char *src);
 char	*ft_realloc(char *ptr, unsigned int *size);
 void	*ft_memcpy(void *to, const void *from, unsigned int size);
 
+typedef struct	s_col_row
+{
+	int			row;
+	int			column;
+	char		inf[3];
+}				t_col_row;
 #endif
+
